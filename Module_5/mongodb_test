@@ -4,3 +4,7 @@ url = "mongodb+srv://admin:<password>@cluster0.ox7kqsr.mongodb.net/?retryWrites=
 client = MongoClient(url)
 db = client.py
 print(db.list_collection_names())
+
+
+-- Pytech Collection --
+['Students']
