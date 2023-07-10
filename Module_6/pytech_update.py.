@@ -1,1 +1,41 @@
+from pymongo import MongoClient 
 
+client=MongoClient 
+db=client.pytech
+pytech =db 
+collection = db.students
+
+#Call_find()  
+doc = collection.find()
+for doc in collection:
+    print(doc)
+
+#Update()
+results = db.collection.update_one({"student_id": "1007"}, {"$set": {"last_name": "Smith"}})
+
+#Find_one()
+doc = collection.find()
+for record in collection:
+     print(db.collection_name.find_one({“student_id”: “1007”}))
+                                        print(doc[“student_id”])
+
+
+-- DISPLAYING STUDENT DOCUMENTS FROM find() QUERY --
+Student ID: 1007
+First Name:Greg 
+Last Name: Walsh
+
+Student ID: 1008
+First Name: Victoria
+Last Name: Love
+
+Student ID:1009
+First Name: Micheal 
+Last Name: Reed
+
+-- DISPLAYING STUDENT DOCUMENT FROM find_one() QUERY -- 
+Student ID: 1007 
+First Name: Greg 
+Last Name: Walsh
+
+End of program any key to countine...
