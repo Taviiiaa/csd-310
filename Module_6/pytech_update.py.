@@ -1,8 +1,10 @@
 from pymongo import MongoClient 
 
-client=MongoClient 
-db=client.pytech
-pytech =db 
+from pymongo import MongoClient
+
+url = "mongodb+srv://admin:admin@cluster0.ox7kqsr.mongodb.net/?retryWrites=true&w=majority"
+client = MongoClient("mongodb+srv://admin:admin@cluster0.ox7kqsr.mongodb.net/?retryWrites=true&w=majority")
+db = client.pytech
 collection = db.students
 
 #Call_find()  
@@ -11,7 +13,8 @@ for doc in collection:
     print(doc)
 
 #Update()
-results = db.collection.update_one({"student_id": "1007"}, {"$set": {"last_name": "Smith"}})
+results = db.collection.update_one({"student_id": "1007"}, {"$set": {"last_name": "RAY"}})
+
 
 #Find_one()
 doc = collection.find()
@@ -23,7 +26,7 @@ for record in collection:
 -- DISPLAYING STUDENT DOCUMENTS FROM find() QUERY --
 Student ID: 1007
 First Name:Greg 
-Last Name: Walsh
+Last Name: RAY
 
 Student ID: 1008
 First Name: Victoria
