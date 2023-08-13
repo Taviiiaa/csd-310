@@ -4,6 +4,21 @@
 #CYBR 410 Data/database 
 #WhatABook Program application 
 
+
+-- creating database
+    
+CREATE DATABASE whatabook;
+
+USE whatabook;
+
+
+-- creating new user with all privileges
+
+CREATE USER 'whatabook_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MySQL8IsGreat!';
+GRANT ALL PRIVILEGES ON whatabook.* TO 'whatabook_user'@'localhost';
+
+-- creating tables 
+
 CREATE TABLE store (
     store_id    INT           NOT NULL    AUTO_INCREMENT,
     locale      VARCHAR(500)  NOT NULL,
@@ -33,8 +48,12 @@ CREATE TABLE wishlist (
         REFERENCES book(book_id)
 );
 
+-- Insert store location 
+
 INSERT INTO store(locale)
     VALUES('West Palm Beach Fl 33401');
+
+--Insert booklist record
 
 INSERT INTO book(book_name, author, details, book_id) 
 VALUES('Grace by me', 'Lilly Haze', 'A book about putting yourself first', '001'); 
@@ -65,6 +84,8 @@ VALUES('I shouldve cheated', 'Lilly Haze', 'A book about a girl catching her boy
 
 -------
 
+-- Insert users records 
+
 INSERT INTO user(first_name, last_name) 
     VALUES('Grace', 'May');
 
@@ -74,6 +95,8 @@ INSERT INTO user(first_name, last_name)
 INSERT INTO user(first_name, last_name)
     VALUES('Jada', 'Beach');
 -----------
+
+--Inser wishlist records
 INSERT INTO wishlist(user_id, book_id) 
     VALUES (
         (SELECT user_id FROM user WHERE first_name = 'Jada'), 
