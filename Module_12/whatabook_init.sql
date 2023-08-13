@@ -1,4 +1,8 @@
 
+#Tavia Payne 
+#August 11th 2023
+#CYBR 410 Data/database 
+#WhatABook Program application 
 
 CREATE TABLE store (
     store_id    INT           NOT NULL    AUTO_INCREMENT,
